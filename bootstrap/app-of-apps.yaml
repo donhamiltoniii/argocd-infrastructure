@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/myorg/argocd-infrastructure
+    repoURL: https://github.com/donhamiltoniii/argocd-infrastructure
     targetRevision: HEAD
     path: applications  # Just points to the applications directory
   destination:
