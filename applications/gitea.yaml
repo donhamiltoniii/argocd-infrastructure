@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/donhamiltoniii/gitea-k3s-service
+    repoURL: https://github.com/donhamiltoniii/k3s-homelab
     targetRevision: HEAD
     path: overlays/production
   destination:
