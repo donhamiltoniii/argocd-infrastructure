@@ -6,8 +6,8 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/YOUR_USERNAME/YOUR_REPO_NAME
-    targetRevision: develop # Use develop branch for dev
+    repoURL: https://github.com/donhamiltoniii/project-acorn
+    targetRevision: develop
     path: k8s/overlays/dev
   destination:
     server: https://kubernetes.default.svc
