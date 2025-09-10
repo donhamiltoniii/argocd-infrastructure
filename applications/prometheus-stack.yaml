@@ -11,26 +11,60 @@ spec:
     targetRevision: 55.5.0
     helm:
       values: |
+        # CRD Configuration with sync waves
+        crds:
+          enabled: true
+          
+        # Prometheus Operator configuration
+        prometheusOperator:
+          # Add sync wave to operator resources
+          annotations:
+            argocd.argoproj.io/sync-wave: "0"
+          
+        # Grafana configuration
         grafana:
+          # Add sync wave to Grafana
+          annotations:
+            argocd.argoproj.io/sync-wave: "1"
           ingress:
             enabled: true
             annotations:
               kubernetes.io/ingress.class: "traefik"
+              argocd.argoproj.io/sync-wave: "2"
             hosts:
               - grafana.local
+              
+        # Prometheus configuration  
         prometheus:
+          annotations:
+            argocd.argoproj.io/sync-wave: "1"
           ingress:
             enabled: true
             annotations:
               kubernetes.io/ingress.class: "traefik"
+              argocd.argoproj.io/sync-wave: "2"
             hosts:
               - prometheus.local
+              
+        # Alertmanager configuration
+        alertmanager:
+          annotations:
+            argocd.argoproj.io/sync-wave: "1"
+
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
+    
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
+      - ServerSideApply=true  # This helps with the annotation size issue
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m0s
