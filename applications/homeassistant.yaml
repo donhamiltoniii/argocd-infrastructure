@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/donhamiltoniii/k3s-homelab
     targetRevision: HEAD
-    path: dumb-assets
+    path: homeassistant
   destination:
     server: https://kubernetes.default.svc
     namespace: homeassistant
