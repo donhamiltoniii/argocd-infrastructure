@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/donhamiltoniii/k3s-homelab
     targetRevision: HEAD
-    path: ollama
+    path: ollama/overlays/homelab
   destination:
     server: https://kubernetes.default.svc
     namespace: ollama
