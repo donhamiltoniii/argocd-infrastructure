@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/donhamiltoniii/between-machines
+    repoURL: git@github.com:donhamiltoniii/between-machines.git
     targetRevision: HEAD
     path: k8s/overlays/production
   destination:
